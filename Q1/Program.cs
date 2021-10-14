@@ -11,6 +11,8 @@ namespace Q1
 
             for (int i = 1; i <= a; i++)
             {
+                Console.WriteLine("");
+
                 Console.WriteLine(Calculate(a, i));
             }
 

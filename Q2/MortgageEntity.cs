@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Q2
 {
-    class MortgageEntity
+    class MortgageEntity : IComparable<MortgageEntity>
     {
         public string borrowerName { get; set; }
         public double mortgageBalance { get; set; }
@@ -64,6 +64,16 @@ namespace Q2
         private static double calculateInterestAmount(double monthlyPayment, double durationInMonths, double mortagageBalance)
         {
             return (monthlyPayment * durationInMonths) - mortagageBalance;
+        }
+
+        public int CompareTo(MortgageEntity otherMortgageEntity)
+        {
+            if (newPaymentSavings < otherMortgageEntity.newPaymentSavings)
+                return 1;
+            else if (newPaymentSavings > otherMortgageEntity.newPaymentSavings)
+                return -1;
+
+            return 0;
         }
     }
 }
